@@ -1,4 +1,4 @@
 - name: Upload artifact
   uses: actions/upload-pages-artifact@v3
   with:
-    path: .   # deploy the repo root where index.html lives
+    path: site_build
