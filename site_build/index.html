@@ -1,94 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Automation Hub — Find Tools That Make You Money</title>
-<meta name="description" content="A hand-picked, fast directory of AI tools and automations. Search, filter, and try the best AI for business, marketing, content, chatbots, images, and more.">
-<style>
-  :root{
-    --bg:#0b0f19;--panel:#0f172a;--muted:#94a3b8;--edge:#1f2937;--hi:#60a5fa;--hi2:#22d3ee;--ok:#22c55e;
-  }
-  *{box-sizing:border-box} html,body{margin:0;height:100%}
-  body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0b0f19,#0c1222);color:#e5e7eb}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1100px;margin:0 auto;padding:22px}
-  .nav{display:flex;gap:12px;align-items:center;justify-content:space-between}
-  .brand{display:flex;gap:10px;align-items:center}
-  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--hi),var(--hi2));box-shadow:0 0 30px rgba(96,165,250,.35)}
-  .pill{border:1px solid var(--edge);border-radius:9999px;padding:6px 10px;font-size:12px;color:#cbd5e1}
-  .hero{padding:26px 0 10px}
-  h1{margin:.2rem 0;font-size:clamp(26px,5.6vw,44px);line-height:1.05}
-  .sub{color:#cbd5e1;max-width:70ch}
-  .ctrls{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
-  input,select{background:#0b1220;border:1px solid var(--edge);color:#e5e7eb;border-radius:12px;padding:12px 14px;outline:none}
-  .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--edge);background:#0b1220;color:#e5e7eb;padding:12px 14px;border-radius:12px;cursor:pointer}
-  .btn.primary{background:linear-gradient(135deg,var(--hi),var(--hi2));color:#0b0f19;border:none;font-weight:700}
-  .grid{display:grid;gap:14px;margin:12px 0 26px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .card{background:rgba(15,23,42,.78);backdrop-filter:blur(6px);border:1px solid var(--edge);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
-  .tags{display:flex;flex-wrap:wrap;gap:6px}
-  .tag{font-size:12px;color:#cbd5e1;background:#0b1220;border:1px solid var(--edge);padding:4px 8px;border-radius:9999px}
-  .meta{color:var(--muted);font-size:12px}
-  .footer{border-top:1px solid var(--edge);color:#9ca3af;padding:18px 0;margin-top:18px;font-size:12px}
-  .disclosure{font-size:12px;color:#a3a3a3}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Hub — Smart Tools for Income</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: #121212;
+      padding: 40px 20px;
+      border-bottom: 2px solid #ff6600;
+    }
+    header h1 {
+      font-size: 2em;
+      color: #ff6600;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #ff6600;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background: #e65500;
+    }
+    footer {
+      margin-top: 50px;
+      padding: 15px;
+      border-top: 1px solid #444;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
+  <header>
+    <h1>AI Automation Hub 🤖</h1>
+    <p>Turn AI tools into passive income systems</p>
+  </header>
 
-  <div class="nav">
-    <div class="brand"><div class="logo"></div><strong>AI Automation Hub</strong></div>
-    <div class="pill">Updated by Mike • <span id="y"></span></div>
-  </div>
-
-  <section class="hero">
-    <h1>Find AI tools that actually move the needle</h1>
-    <p class="sub">Quick, curated picks. Search by purpose, filter by category, and click to try. Links can be affiliate links (we may earn a commission).</p>
-    <div class="ctrls">
-      <input id="q" type="search" placeholder="Search tools… e.g., ‘ad copy’, ‘image’, ‘chatbot’" style="flex:2;min-width:200px">
-      <select id="cat" style="flex:1;min-width:180px">
-        <option value="">All categories</option>
-        <option>Writing</option>
-        <option>Images</option>
-        <option>Video</option>
-        <option>Chatbots</option>
-        <option>Automation</option>
-        <option>Research</option>
-        <option>SEO</option>
-      </select>
-      <button class="btn" id="reset">Reset</button>
-      <a class="btn primary" href="#newsletter">Get weekly money-makers</a>
-    </div>
+  <section>
+    <h2>Welcome to Your Automated Business Engine</h2>
+    <p>We build and share tools that generate income using AI — no coding, no stress, just results.</p>
+    <p>From content automation to smart landing pages, everything here is built to scale and earn.</p>
+    <a href="#" class="cta">Get Started Today</a>
   </section>
 
-  <div id="list" class="grid" aria-live="polite"></div>
-
-  <section id="newsletter" class="card" style="margin-top:8px">
-    <h3 style="margin:0 0 6px">Free weekly email: “AI tools that make money”</h3>
-    <p class="meta">Add your email to get 3 high-ROI tools + simple plays. No spam.</p>
-    <!-- Replace the action with your Google Form or FormSubmit link when ready -->
-    <form action="https://formsubmit.co/youremail@example.com" method="POST" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-      <input type="email" name="email" required placeholder="you@email.com" style="flex:2;min-width:220px">
-      <button class="btn primary" type="submit">Send me the picks</button>
-      <input type="hidden" name="_subject" value="AI Automation Hub — New subscriber">
-      <input type="hidden" name="_captcha" value="false">
-    </form>
-  </section>
-
-  <p class="disclosure" style="margin-top:12px">Disclosure: some outbound links are affiliate links. We only list tools we’d use ourselves.</p>
-  <div class="footer">© <span id="y2"></span> AI Automation Hub • Built by Mike</div>
-</div>
-
-<script>
-  // === CONFIG: add/edit tools here (replace links with your affiliate URLs) ===
-  const TOOLS = [
-    {
-      name: "Jasper AI",
-      desc: "Writes ad copy, product descriptions, and emails in minutes.",
-      cat: "Writing",
-      tags: ["ads","copy","ecom"],
-      link: "https://your-affiliate-link.example/jasper"
-    },
-    {
-      name: "Midjourney (via Discord)",
-      desc: "Generate high
+  <footer>
+    © 2025 AI Automation Hub — Built with ❤️ and GitHub Pages
+  </footer>
+</body>
+</html>
