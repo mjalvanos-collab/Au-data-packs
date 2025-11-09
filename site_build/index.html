@@ -1,85 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Automation Hub — Coming Soon</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-      color: white;
-      text-align: center;
-    }
-    header {
-      background: #121212;
-      padding: 40px 20px;
-      border-bottom: 2px solid #ff6600;
-    }
-    header h1 {
-      color: #ff6600;
-      font-size: 2em;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-    input[type="email"] {
-      padding: 15px;
-      width: 80%;
-      max-width: 350px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 20px;
-      font-size: 1em;
-    }
-    button {
-      margin-top: 15px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      background: #ff6600;
-      color: white;
-      font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #e65500;
-    }
-    footer {
-      margin-top: 50px;
-      padding: 15px;
-      font-size: 0.9em;
-      color: #aaa;
-      border-top: 1px solid #444;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Automation Hub — Build Income with AI</title>
+<meta name="description" content="Modern AI automation hub. Curated tools, playbooks, and done-for-you systems to create income with AI. Join early access." />
+<style>
+  :root{
+    --bg:#0b0f19;--bg2:#0f172a;--card:#0b1220;--edge:#1e293b;
+    --text:#e5e7eb;--muted:#9aa4b2;--brand:#ff6600;--brand2:#ff8a1c;--ok:#22c55e;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+       background:radial-gradient(1400px 600px at 10% -10%,#12203a 0%,#0b0f19 50%),linear-gradient(180deg,#0b0f19,#0b0f19 40%,#0f172a 100%);
+       color:var(--text)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  /* NAV */
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .logo{width:34px;height:34px;border-radius:10px;background:
+        conic-gradient(from 210deg,var(--brand),var(--brand2),#ffd48f);
+        box-shadow:0 0 30px rgba(255,102,0,.35)}
+  .nav .badge{font-size:12px;color:#cbd5e1;border:1px solid var(--edge);
+               padding:6px 10px;border-radius:9999px;opacity:.9}
+  /* HERO */
+  .hero{padding:34px 0 22px}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;
+           border:1px solid var(--edge);border-radius:9999px;padding:6px 10px;
+           font-size:12px;color:#cbd5e1;background:rgba(11,18,32,.6);backdrop-filter:blur(6px)}
+  h1{margin:.4rem 0;font-size:clamp(26px,6.2vw,52px);line-height:1.06}
+  .sub{color:#cbd5e1;max-width:70ch;margin-top:6px}
+  /* CONTROLS */
+  .panel{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 8px}
+  input[type=email]{flex:2;min-width:220px;background:#0b1220;border:1px solid var(--edge);
+                    color:var(--text);border-radius:12px;padding:14px}
+  .btn{border:1px solid var(--edge);background:#0b1220;color:var(--text);
+       padding:12px 16px;border-radius:12px;cursor:pointer;font-weight:600}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b0f19;border:none}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:18px 0}
+  .kpi{border:1px solid var(--edge);background:rgba(15,23,42,.6);border-radius:14px;padding:14px;text-align:center}
+  .kpi strong{font-size:22px}
+  /* SECTION */
+  .section{padding:18px 0 8px}
+  .section h2{font-size:clamp(22px,4.8vw,34px);margin:0 0 8px}
+  .muted{color:var(--muted)}
+  /* CARDS GRID */
+  .grid{display:grid;gap:14px;margin-top:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:rgba(15,23,42,.72);backdrop-filter:blur(6px);border:1px solid var(--edge);
+        border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+  .tag{position:absolute;top:12px;right:12px;font-size:11px;border:1px solid var(--edge);
+       padding:4px 8px;border-radius:9999px;background:#0b1220;color:#cbd5e1}
+  .card h3{margin:.2rem 0;font-size:18px}
+  .list{display:flex;flex-direction:column;gap:6px}
+  .list li{list-style:none;padding-left:20px;position:relative}
+  .list li:before{content:"✓";position:absolute;left:0;top:0;color:var(--ok)}
+  /* TRUST */
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  .pill{border:1px solid var(--edge);border-radius:9999px;padding:6px 10px;color:#cbd5e1;font-size:12px}
+  /* TESTIMONIALS */
+  .quotes{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .quote{border:1px solid var(--edge);border-radius:16px;background:linear-gradient(180deg,#0d1324,#0b1220);
+         padding:16px}
+  .quote .who{color:#cbd5e1;font-size:13px;margin-top:6px}
+  /* FAQ */
+  details{border:1px solid var(--edge);border-radius:12px;background:#0b1220;padding:12px}
+  details+details{margin-top:10px}
+  summary{cursor:pointer;font-weight:600}
+  /* FOOTER */
+  footer{border-top:1px solid var(--edge);margin-top:24px;padding:18px 0;color:#9ca3af;font-size:12px;text-align:center}
+</style>
 </head>
 <body>
-  <header>
-    <h1>AI Automation Hub 🤖</h1>
-    <p>Passive Income Meets Smart AI Tools</p>
+<div class="wrap">
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="brand"><div class="logo"></div><strong>AI Automation Hub</strong></div>
+    <div class="badge">Launching • 2025</div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="eyebrow">🚀 Pre-launch access now open</span>
+    <h1>Passive Income Meets <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Smart AI Systems</span></h1>
+    <p class="sub">We curate the best AI tools and wire them into simple, revenue-focused workflows. No fluff — just plays that move the needle.</p>
+
+    <!-- EMAIL CAPTURE -->
+    <form class="panel" action="https://forms.gle/your-google-form-link" method="get" target="_blank">
+      <input type="email" name="email" placeholder="you@email.com" required />
+      <button class="btn primary" type="submit">Get Early Access</button>
+      <button class="btn" type="button" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works</button>
+    </form>
+
+    <!-- SOCIAL PROOF / KPIs -->
+    <div class="kpis">
+      <div class="kpi"><strong>10–20 hrs</strong><div class="muted">saved / month via automation</div></div>
+      <div class="kpi"><strong>7 hand-picked</strong><div class="muted">tools that actually perform</div></div>
+      <div class="kpi"><strong>Zero code</strong><div class="muted">copy-paste playbooks</div></div>
+    </div>
   </header>
 
-  <section>
-    <h2>🚀 Launching Soon</h2>
-    <p>We’re building an automated platform that helps you earn from AI-driven systems.</p>
-    <p>Be the first to access tools that generate income on autopilot.</p>
+  <!-- WHAT WE'RE BUILDING -->
+  <section class="section" id="what">
+    <h2>What we’re building</h2>
+    <p class="muted">A lean stack that creates content, captures demand, and converts — on autopilot.</p>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Content Engine</span>
+        <h3>AI Content → Traffic</h3>
+        <ul class="list">
+          <li>Generate posts, reels hooks, and product copy in minutes.</li>
+          <li>Auto-repurpose long clips into shorts for IG/TikTok.</li>
+          <li>SEO-ready outlines that actually rank.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Capture</span>
+        <h3>Leads While You Sleep</h3>
+        <ul class="list">
+          <li>Clean landing pages with built-in email capture.</li>
+          <li>One-click forms to Sheets/CRM — no dev needed.</li>
+          <li>Smart follow-ups that convert readers to buyers.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Monetize</span>
+        <h3>Offers That Print</h3>
+        <ul class="list">
+          <li>Affiliate bundles with tracked links.</li>
+          <li>Done-for-you automations as micro-products.</li>
+          <li>Simple subscriptions for recurring revenue.</li>
+        </ul>
+      </article>
+    </div>
 
-    <!-- You can replace the Google Form link below later -->
-    <form action="https://forms.gle/your-google-form-link" method="get" target="_blank">
-      <input type="email" name="email" placeholder="Enter your email" required />
-      <br />
-      <button type="submit">Notify Me</button>
+    <div class="bar" style="margin-top:14px">
+      <span class="pill">No code setup</span>
+      <span class="pill">Under 60 minutes</span>
+      <span class="pill">Mobile friendly</span>
+      <span class="pill">Transparent playbooks</span>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <h2>How it works</h2>
+    <p class="muted">Three steps. Clear outcomes.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>1) Pick a play</h3>
+        <p class="muted">Choose a proven use-case: product posts, short-form clips, DM chatbot, or email mini-funnel.</p>
+      </article>
+      <article class="card">
+        <h3>2) Connect tools</h3>
+        <p class="muted">We provide the exact prompts, settings, and zaps. Copy. Paste. Done.</p>
+      </article>
+      <article class="card">
+        <h3>3) Measure & scale</h3>
+        <p class="muted">Track clicks and signups with simple dashboards. Double-down on what pays.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / SOCIAL PROOF -->
+  <section class="section" id="proof">
+    <h2>What early users say</h2>
+    <div class="quotes">
+      <div class="quote">
+        “Clean, fast, and the only AI list that didn’t waste my time. Copied a playbook and made my first sales the same week.”
+        <div class="who">— Retail ecom owner</div>
+      </div>
+      <div class="quote">
+        “The DM automation + short clips combo is 🔥. I finally have a repeatable flow without hiring an agency.”
+        <div class="who">— Local services marketer</div>
+      </div>
+      <div class="quote">
+        “Setup on my phone. No dev. The templates looked like I paid a designer.”
+        <div class="who">— Solo creator</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <h2>FAQs</h2>
+    <details>
+      <summary>Is this beginner-friendly?</summary>
+      <p class="muted">Yes. You’ll get step-by-step prompts, screenshots, and copy-paste automations. If you can use your phone, you can run this.</p>
+    </details>
+    <details>
+      <summary>Do I need to pay for tools?</summary>
+      <p class="muted">We recommend a free-first stack. Paid options are noted if ROI is clear (e.g., Zapier tasks or SEO tools).</p>
+    </details>
+    <details>
+      <summary>How will I make money with this?</summary>
+      <p class="muted">Three paths: affiliate bundles, selling tiny done-for-you automations, or a simple monthly subscription with your curated stack.</p>
+    </details>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" style="text-align:center">
+    <h2>Join the early access list</h2>
+    <p class="muted">Get the first playbooks, tool picks, and templates as we launch.</p>
+    <form class="panel" action="https://forms.gle/your-google-form-link" method="get" target="_blank" style="justify-content:center">
+      <input type="email" name="email" placeholder="you@email.com" required />
+      <button class="btn primary" type="submit">Get invites & updates</button>
     </form>
+    <div class="muted" style="font-size:12px;margin-top:4px">We respect your inbox. Unsubscribe anytime.</div>
   </section>
 
   <footer>
-    © 2025 AI Automation Hub | Built on GitHub Pages
+    © <span id="y"></span> AI Automation Hub — Built on GitHub Pages
   </footer>
+</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
