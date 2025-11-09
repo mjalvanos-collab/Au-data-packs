@@ -6,7 +6,7 @@
 <title>AI Automation Hub — Tools Directory</title>
 <meta name="description" content="Curated AI tools for writing, images, video, chatbots, automation, research and SEO." />
 <style>
-  :root{--bg:#070b12;--bg2:#0b1220;--edge:#1f2a3d;--text:#e6edf3;--muted:#9aa4b2;--brand:#7c5cff;--brand2:#22d3ee}
+  :root{--bg:#070b12;--bg2:#0b1220;--edge:#1f2a3d;--text:#e6edf3;--muted:#9aa4b2;--brand:#7c5cff;--brand2:#22d3ee;--ok:#22c55e}
   *{box-sizing:border-box} html,body{margin:0}
   body{
     font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
@@ -25,11 +25,20 @@
   .sub{color:#cbd5e1}
   .controls{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
   input,select{background:#0b1220;border:1px solid var(--edge);color:var(--text);border-radius:12px;padding:12px 14px}
-  .grid{display:grid;gap:14px;margin:14px 0;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .grid{display:grid;gap:14px;margin:14px 0;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .card{background:rgba(15,23,42,.75);border:1px solid var(--edge);border-radius:16px;padding:16px;position:relative;overflow:hidden}
   .tag{position:absolute;top:12px;right:12px;font-size:11px;border:1px solid var(--edge);padding:4px 8px;border-radius:9999px;background:#0b1220;color:#cbd5e1}
   .muted{color:var(--muted);font-size:13px}
   footer{border-top:1px solid var(--edge);margin-top:22px;padding:18px 0;color:#9ca3af;font-size:12px;text-align:center}
+
+  /* Beehiiv promo elements */
+  .promo{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+         border:1px solid var(--edge);background:rgba(15,23,42,.75);border-radius:16px;padding:16px}
+  .promo h3{margin:.2rem 0}
+  .promo small{color:#cbd5e1}
+  .sticky-cta{position:sticky;bottom:12px;display:flex;justify-content:center;margin-top:10px}
+  .cta{display:inline-flex;align-items:center;gap:8px;border:none;background:linear-gradient(135deg,var(--brand),var(--brand2));
+       color:#0a0f18;padding:12px 16px;border-radius:12px;font-weight:700}
 </style>
 </head>
 <body>
@@ -42,7 +51,16 @@
     </div>
   </nav>
 
-  <header class="hero">
+  <!-- Subtle Beehiiv banner -->
+  <div class="promo">
+    <div>
+      <h3>Start a newsletter that pays — on Beehiiv</h3>
+      <small>Launch free. Monetize with boosts & ads. Grow your audience fast.</small>
+    </div>
+    <a id="beehiivTop" class="btn" target="_blank" rel="nofollow sponsored noopener">Join Free</a>
+  </div>
+
+  <header class="hero" id="top">
     <h1>Tools Directory</h1>
     <p class="sub">Hand-picked AI tools for content, images, video, chatbots, automation, research and SEO. Use search & filters to find what pays.</p>
     <div class="controls">
@@ -53,9 +71,7 @@
         <option>Writing</option><option>Video</option><option>Voice</option><option>Design</option><option>SEO</option>
       </select>
       <select id="price" style="flex:1;min-width:160px">
-        <option value="">Any price</option>
-        <option value="free">Free plan</option>
-        <option value="paid">Paid</option>
+        <option value="">Any price</option><option value="free">Free plan</option><option value="paid">Paid</option>
       </select>
       <button id="reset" class="btn">Reset</button>
     </div>
@@ -66,37 +82,54 @@
     <p class="muted">Some outbound links are affiliate links. We only list tools we’d use ourselves.</p>
   </section>
 
+  <!-- Sticky footer CTA for Beehiiv (tasteful, not spammy) -->
+  <div class="sticky-cta">
+    <a id="beehiivBottom" class="cta" target="_blank" rel="nofollow sponsored noopener">Join Beehiiv Free</a>
+  </div>
+
   <footer>© <span id="y"></span> AI Automation Hub • Tools</footer>
 </div>
 
 <script>
-  // --- helpers
   const $ = s => document.querySelector(s);
   const U = new URL(location.href);
   const utm = ['utm_source','utm_medium','utm_campaign'].reduce((o,k)=> (o[k]=U.searchParams.get(k)||'',o),{});
 
-  // ✅ Real, working links for now (swap to your affiliate URLs later)
+  // Your Beehiiv partner link
+  const BEEHIIV = "https://www.beehiiv.com?via=michael-jr";
+
+  // Attach UTM params to Beehiiv links
+  function withUtm(url){
+    const params = new URLSearchParams({...utm});
+    const sep = url.includes('?') ? '&' : '?';
+    return url + sep + params.toString();
+  }
+  $('#beehiivTop').href = withUtm(BEEHIIV);
+  $('#beehiivBottom').href = withUtm(BEEHIIV);
+
+  // Tools (working official links; swap to your affiliate URLs later)
   const TOOLS = [
+    {name:"Beehiiv (Featured)", cat:"Newsletters", price:"free", desc:"Launch & monetize a newsletter (boosts, ads, referrals).", link:BEEHIIV, proof:"Up to 60% recurring", tags:["email","ads","referrals"], featured:true},
     {name:"ManyChat",   cat:"Chatbots",   price:"paid", desc:"IG/FB/WhatsApp DM automation — comments → DMs.", link:"https://manychat.com/",              proof:"Partner program", tags:["instagram","dm","leads"]},
     {name:"Zapier",     cat:"Automation", price:"free", desc:"Automate tasks across 6,000+ apps.",              link:"https://zapier.com/",               proof:"Affiliate via PartnerStack", tags:["workflows","ops"]},
-    {name:"beehiiv",    cat:"Newsletters",price:"free", desc:"Launch & monetize a newsletter (boosts, ads).",    link:"https://www.beehiiv.com/",          proof:"Affiliate program",          tags:["email","ads"]},
-    {name:"Notion",     cat:"Writing",    price:"free", desc:"Docs/ops hub with Notion AI.",                     link:"https://www.notion.so/product/ai",  proof:"Affiliate program",          tags:["ops","docs"]},
     {name:"Jasper",     cat:"Writing",    price:"paid", desc:"High-quality ads, emails, product copy.",         link:"https://www.jasper.ai/",            proof:"Affiliate program",          tags:["copy","ads"]},
     {name:"Canva",      cat:"Design",     price:"free", desc:"Magic Studio, brand kits, pro assets.",           link:"https://www.canva.com/",            proof:"Affiliate program",          tags:["thumbnails","social"]},
     {name:"ElevenLabs", cat:"Voice",      price:"paid", desc:"Best-in-class AI voice cloning & TTS.",           link:"https://elevenlabs.io/",            proof:"Affiliate program",          tags:["voice","audio"]},
     {name:"Synthesia",  cat:"Video",      price:"paid", desc:"Text-to-video with avatars for tutorials & ads.", link:"https://www.synthesia.io/",         proof:"Affiliate program",          tags:["video","training"]},
-    {name:"Runway",     cat:"Video",      price:"free", desc:"Gen-AI video: shorts, ads, stylization.",         link:"https://runwayml.com/",             proof:"Creator routes",             tags:["gen-ai","video"]}
+    {name:"Runway",     cat:"Video",      price:"free", desc:"Gen-AI video: shorts, ads, stylization.",         link:"https://runwayml.com/",             proof:"Creator routes",             tags:["gen-ai","video"]},
+    {name:"Notion",     cat:"Writing",    price:"free", desc:"Docs/ops hub with Notion AI.",                     link:"https://www.notion.so/product/ai",  proof:"Affiliate program",          tags:["ops","docs"]},
+    {name:"beehiiv — Creator Ads", cat:"Newsletters", price:"free", desc:"Apply for ads when you have traction to earn from sponsors.", link:BEEHIIV, proof:"Creator Ad Network", tags:["ads","newsletter"]}
   ];
 
   const grid = document.getElementById('grid'), q=$('#q'), cat=$('#cat'), price=$('#price'), reset=$('#reset');
 
   function card(t){
-    const params = new URLSearchParams({...utm});
-    const url = t.link + (t.link.includes('?')?'&':'?') + params.toString();
+    const url = withUtm(t.link);
+    const badge = t.featured ? `<span class="tag">Featured</span>` : `<span class="tag">${t.cat}</span>`;
     return `
       <article class="card">
-        <span class="tag">${t.cat}</span>
-        <div class="muted">${t.price==='free'?'Free plan':'Paid'} • ${t.proof||''}</div>
+        ${badge}
+        <div class="muted">${t.price==='free'?'Free plan':'Paid'} ${t.proof?('• '+t.proof):''}</div>
         <h3 style="margin:.2rem 0 .3rem">${t.name}</h3>
         <p class="muted" style="margin:.2rem 0 .6rem">${t.desc}</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -114,14 +147,15 @@
       const okTerm=!term||(t.name+' '+t.desc+' '+(t.tags||[]).join(' ')).toLowerCase().includes(term);
       return okCat && okPrice && okTerm;
     });
+    // keep featured item first
+    out.sort((a,b)=> (b.featured?1:0) - (a.featured?1:0));
     grid.innerHTML = out.map(card).join('') || `<div class="card">No results. Try a different search or filter.</div>`;
   }
 
-  q.addEventListener('input',render);
-  cat.addEventListener('change',render);
-  price.addEventListener('change',render);
+  q.addEventListener('input',render); cat.addEventListener('change',render); price.addEventListener('change',render);
   reset.addEventListener('click',()=>{q.value='';cat.value='';price.value='';render()});
   render();
+
   document.getElementById('y').textContent=new Date().getFullYear();
 </script>
 </body>
