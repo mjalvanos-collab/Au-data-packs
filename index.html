@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NovaFlow Hub — AI automation systems & tools</title>
+<meta name="description" content="NovaFlow Hub — curated AI automations, tools and playbooks that help you start earning with no face and minimal work." />
+<style>
+:root{--bg:#071023;--card:#0f1724;--muted:#9aa4b2;--text:#e6edf3;--accent:#7c5cff}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#05060a,#071023)}
+.wrap{max-width:1100px;margin:0 auto;padding:22px}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#22d3ee)}
+.actions{display:flex;gap:10px}
+.btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text);text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#22d3ee);color:#071023;font-weight:700;border:none}
+.hero{padding:28px 0}
+h1{margin:0;font-size:clamp(28px,5.5vw,44px)}
+.lead{color:var(--muted);max-width:70ch}
+.form{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+input[type=email]{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--text)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
+.card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.footer{text-align:center;color:var(--muted);padding:18px 0;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav">
+    <div class="brand"><div class="logo"></div><div><strong>NovaFlow Hub</strong><div style="font-size:12px;color:var(--muted)">AI automation • tools • passive systems</div></div></div>
+    <div class="actions">
+      <a class="btn" href="tools/">Tools</a>
+      <a class="btn" href="deals/">Deals</a>
+      <a class="btn primary" href="https://www.beehiiv.com?via=michael-jr" target="_blank" rel="noopener noreferrer">Join Newsletter</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Automations that earn while you sleep</h1>
+    <p class="lead">NovaFlow Hub curates the best AI tools and builds turn-key, no-face systems that capture leads and convert. Join our free newsletter to get the playbooks and tools.</p>
+
+    <form class="form" action="https://www.beehiiv.com?via=michael-jr" method="get" target="_blank">
+      <input type="email" name="email" placeholder="you@example.com" required />
+      <button class="btn primary" type="submit">Join Free</button>
+      <a class="btn" href="#how">How it works</a>
+    </form>
+
+    <div class="kpis">
+      <div class="card"><strong>Automated</strong><div style="color:var(--muted)">Auto-run funnels & DM flows</div></div>
+      <div class="card"><strong>No face</strong><div style="color:var(--muted)">Template content & voiceovers</div></div>
+      <div class="card"><strong>Monetized</strong><div style="color:var(--muted)">Affiliate + newsletter</div></div>
+    </div>
+  </header>
+
+  <section id="how" style="margin-top:18px">
+    <h2>How NovaFlow Hub makes money</h2>
+    <div style="display:grid;gap:12px;margin-top:10px">
+      <div class="card"><strong>Affiliate conversions</strong><div style="color:var(--muted)">Curated tools + deals with affiliate links.</div></div>
+      <div class="card"><strong>Newsletter monetization</strong><div style="color:var(--muted)">Beehiiv referral + nurture sequence that recommends paid tools.</div></div>
+      <div class="card"><strong>Passive traffic</strong><div style="color:var(--muted)">Autoblog + seeded posts bring steady visitors.</div></div>
+    </div>
+  </section>
+
+  <footer class="footer">© <span id="y"></span> NovaFlow Hub — Built for you. Deploy in one click.</footer>
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

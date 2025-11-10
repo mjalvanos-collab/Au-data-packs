@@ -1,0 +1,14 @@
+name: Deploy site and Autoblog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'  # daily at 06:00 UTC
+jobs:
+  autoblog:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Placeholder - fetch RSS and create posts
+      run: |
+        echo "Configure RSS feeds and parsing in this step. This placeholder will be replaced with a real script if desired."
